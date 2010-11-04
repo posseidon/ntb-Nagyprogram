@@ -1,0 +1,247 @@
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \thechapter}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+
+\chapter{Fejleszői Dokumentáció}
+	\section{Technológia Áttekintés}
+	Geo-wiki megírásához különböző komponensek együttműködését igényli. Az adatbázis motor, a web-es keretrendszer, Google maps API, verzió követő rendszer kiválasztása mind
+	a fejlesztési fázis elő szakaszába tartozik. A továbbiakban szeretném bemutatni az előkészítési fázis nehézségeit és az okát, hogy miért döntöttem
+	a kiválasztott technológiák mellett.
+	
+	Első gondolatom, az volt, hogyan tudnám a legkevesebb kódból megírni a Geo-Wiki. Első próbálkozásom az open source alapú wiki motorokra öszpontosult, hogy
+	megspóroljam a tartalom bevitel és megjelenítő réteg megírásához szükséges időt.
+	Ezek között lényeges különbségek a rendszer rugalmasságában észlelhető. Az alábbiakban felsorolnék egy párat közülük:
+	\begin{center}
+	    \begin{tabular}{ | l | l | l | l | l | p{5cm} |}
+		\hline
+	    \hline
+	    Név & Alkotó & Nyelv & Adatkezelő  & Nyílt   \\ \hline
+	    Media Wiki & Wikipedia Foundation & PHP & RDBMS & Open\\ \hline
+	    TWiki & Peter Thoeny & Perl & File & Enterprise \\ \hline
+	    Doku Wiki & Andreas Gohr & PHP &  File & Open\\ \hline
+		Instiki &  David Heinemeier Hansson & RoR & RDBMS & Open \\ \hline
+	    \hline
+	    \end{tabular}
+	\end{center}
+	Mint láthatjuk, a motorok többsége PHP alapú. Kipróbálásuk után éreztem, hogy további komponensekkel kibővítve valószínűleg
+	rengeteg erőfeszítést és időt igényel mivel egy ismeretlen keretrendszert kell megismerni. Ezért úgy döntöttem, hogy elkezdem nulláról írni az alkalmazást.
+	
+	A következő lépés az adatbázis motor kiválasztása, mivel az információkat elkell tárolni. Itt két szempontot vettem figyelembe:
+	\begin{enumerate}
+		\item GIS funkcionalitás.
+		\item Könnyű, gyors és nyílt forrás kódú.
+	\end{enumerate}
+	
+	Végül, megkellett néznem milyen segéd library-k, illetve wrapper-ek állnak rendelkezésre a Google Maps használatában.
+	A google maps jelenleg V2 és V3 verziókban futnak. Nem véletlenül történt a főverzió váltás. A V3 sokkal többet nyújt, kibővült az API
+	library. Úgy döntöttem, hogy a V3-t fogom használni annak ellenére, hogy a segéd anyagok szinte csak V2-re állnak rendelkezésre.
+
+	% section technologiai_attekintes (end)
+	\section{Keretrendszerek}
+	A keretrendszer kiválasztásakor a következő szempontok kerültek előtérbe:
+	\begin{itemize}
+		\item Web alapú: Webes keretrendszer.
+		\item Moduláris: Egy egyszerű keretrendszer, amelyhez később igény szerint más komponensek csatlakoztathatóak.
+		\item Rugalmas: Bővíthetőség valamit külső nem keretrendszerbeli komponensekkel való együttműködés.
+		\item Google Maps kompatibilis: I/O adatok felületet bíztosítson.
+		\item Grafikus elemek kezelése.
+	\end{itemize}
+	Ezen szempontokat figyelembe véve a következő keretrendszereket vizsgáltam meg:
+	\begin{enumerate}
+		\item Akelos
+		\item JEE
+		\item Flash CS4
+		\item Ruby on Rails
+	\end{enumerate}
+	
+		\subsection{Akelos} % (fold)
+		\label{sub:akelos}
+		% content section
+		
+		\begin{wrapfigure}{r}{0.4\textwidth}
+		  \vspace{-20pt}
+		  \begin{center}
+		    \includegraphics[width=0.20\textwidth]{chapters/chap5/img/akelos.jpg}
+		  \end{center}
+		  \vspace{-20pt}
+		  \caption{Akelos}
+		\end{wrapfigure}
+		
+		MVC (Model, Controller, View) keretrendszer PHP-ban. 
+		\\
+		Magas szintű API-k. Ruby On Rails alapján lett klónozva, feleslegesnek éreztem, hogy
+		egy másik szkript nyelvet tanuljak meg, ahhoz, hogy ugyanazt elérjem Ruby On Rails-ben, amit már ismerek, így nem esett rá a választás. 
+		% subsection symphony (end)
+
+		\subsection{JEE} % (fold)
+		Java Enterprise termékek vizsgálati céljából JBoss rendszer válaszottam, mivel kiforrott, és megbízható.\\
+		\label{sub:jee}
+		
+		\begin{wrapfigure}{r}{0.4\textwidth}
+		  \vspace{-20pt}
+		  \begin{center}
+		    \includegraphics[width=0.30\textwidth]{chapters/chap5/img/jboss.jpg}
+		  \end{center}
+		  \vspace{-20pt}
+		  \caption{JBoss Redhat}
+		\end{wrapfigure}
+		
+
+		Nagyon igéretesnek tűnt, főleg Hibernate rugalmassága és Java nyelv miatt. A következő komponenseit néztem meg:
+		\begin{enumerate}
+			\item Hibernate: rugalmas adat generálási és elérési réteg.
+			\item Open Faces: felhasználói komponensek könyvtára.
+			\item JBoss Application Server: alkalmazás szerver.
+			\item Google Maps plugin: kiegészítő modul google maps-hez.
+		\end{enumerate}
+		Azonban a Faces engine kiszámíthatatlan viselkedése javascript-ekkel, le kellett mondanom. Mivel Google Maps API-ja javascriptben íródott
+		, használata javascript megbízható működését igényel.
+		% subsection  (end)
+		
+		\subsection{Flash CS4} % (fold)
+		\label{sub:flash_cs4}
+		
+		\begin{wrapfigure}{r}{0.4\textwidth}
+		  \vspace{-20pt}
+		  \begin{center}
+		    \includegraphics[width=0.2\textwidth]{chapters/chap5/img/fl.png}
+		  \end{center}
+		  \vspace{-20pt}
+		  \caption{Adobe Flash}
+		\end{wrapfigure}
+
+		Grafikai szempontokat teljesen jól teljesítette, azonban egy nagyon nagy problémája van. Az adatok elérése adatbázison
+		keresztül nagyon körülményes, számomra használhatatlan. Adatbázis kezelés php file-okon keresztül lehet megvalósítani POST/GET
+		metódusokon keresztül.
+		% subsection flash_cs4 (end)
+		
+		\subsection{Ruby On Rails} % (fold)
+		\label{sub:ruby_on_rails}
+		
+		\begin{wrapfigure}{r}{0.4\textwidth}
+		  \vspace{-20pt}
+		  \begin{center}
+		    \includegraphics[width=0.2\textwidth]{chapters/chap5/img/rails.jpg}
+		  \end{center}
+		  \vspace{-20pt}
+		  \caption{Ruby On Rails}
+		\end{wrapfigure}
+
+		Ruby On Rails egy MVC alapú keretrendszer. 
+		
+		
+		\emph{Model}: Active Record osztály a model réteg magja. Ezen keresztül szinte bármilyen adatbázissal tudunk dolgozni. 
+		Alkalmazás írása közben is meg van a lehetőség, hogy adatbázis motort változtassunk mivel a kapcsolatot egy yml fileban van tárolva
+		és Migration modul segítségével bármikor vissza tudjuk állítani a sémát egy másik adatbázison.
+		
+		
+		\emph{View}: Active View osztály felel a megjelenítésért. html.erb kiterjesztés megadja a lehetőséget, hogy egyszerre natív html, javascript
+		valamint ruby kódot tudjunk futtatni. 
+		
+		
+		\emph{Controller} Moduláris komponensekre lehet osztani az alkalmazást. Minden egyes kontroller saját funkcionalitásáért felelős, igy struktúráltabb
+		és átláthatóbb a kód.
+
+		% subsection ruby_on_rails (end)
+	% section keretrendszerek (end)
+	\section{Adatbázis motor}
+	Hárman indultak a versenyben, nevezetesen: Spatialite, MySQL valamint PostgreSQL.
+	
+	Oracle-t szándékosan nem vizsgáltam meg, mivel nem nyílt forrás kódú, azonban van egy ingyenes Express változata, amelyre 4GB file korlátozást szabtak meg.
+	
+		\subsection{MySQL} % (fold)
+		\label{sub:mysql}
+		Egy nagyon fontos kritérium, a helyes működéshez MyISAM szerkezetűnek kell lennie minden táblának. MyISAM támogatást ad egyaránt spatial és nem spatial adatokra.
+		
+		Spatial Extension funkciók:
+		\begin{itemize}
+			\item Geometria model támogatás: polygon, multipoint, linestring, curve, \ldots
+			\item Adatok formátumok WKT (Well known text), WKB (Well known binary)
+			\item Geometria függvények.
+		\end{itemize}
+		Úgy éreztem használati szempontjából egy kicsit körülményes volt.
+		% subsection mysql (end)
+
+		\subsection{Spatialite} % (fold)
+		\label{sub:spatialite}
+		Gyors, egyszerű, kicsi, hordozható. Egy hátránya van, nem képes konkurensen működni. Úgy gondolom fontos megemlíteni, mert
+		nagyon hatékonyan lehet adatokat tárolni, rengeteg nyelven írtak API-t SQLite adatbázishoz. Spatialite extension-je pedig szinte minden
+		geometria függvényt lefed, amit MySQL adatbázis motor szolgáltat.
+		% subsection spatialite (end)
+		
+		\subsection{PostgreSQL - Postgis} % (fold)
+		\label{sub:postgresql}
+		Postgres adatázishoz külön telepíthető komponens. Hatékony, nyíltforráskódú adatbázisrendszer.
+		
+		Spatial extension funkciók:
+		\begin{itemize}
+			\item Geometria model támogatás: teljes.
+			\item Adat formátumok: WKT, WBT.
+			\item Geometria függvények.
+			\item Adatkezelő felület: ERSI, SVG adatok import és export funkciók.
+			\item Bulk Loader: tömeges adatok feltöltése.
+			\item Third party szoftver támogatás: QGis, Grass, \ldots
+		\end{itemize}
+		Három adatbázis motor közül PostreSQL-re esett a választásom.
+		% subsection postgresql (end)
+		
+	% section adatbázis_motors (end)
+	\section{Google Maps}
+	Lars Rasmussen és csapata által kifejlesztett Google Maps-t szeretném felhasználni. V3 a következő funkciókkal bővült V2-hez képest:
+	\begin{itemize}
+		\item KML adatok kezelése.
+		\item Saját térkép definiálása.
+		\item Geokódolásban hátékonyabb lett.
+		\item Útvonal keresési funkciók hatékonysága.
+		\item Google Maps Marker Manager.
+	\end{itemize}
+	Javascript API-n keresztül lehet elérni a szolgáltatásokat.
+	
+	\section{Verzió követés}
+	Verzió követő rendszernek GitHub-t használom.
+	
+	Előnyei:
+	\begin{itemize}
+		\item Ingyenes.
+		\item Web-es.
+		\item Git verzió követő rendszert használ.
+		\item Kényelmes felhasználói felület.
+		\item Biztonságos.
+	\end{itemize}
+	
+	Két repository-t hoztam létre:
+	\begin{enumerate}
+		\item ntb-Nagyprogram
+		\item 
+	\end{enumerate}

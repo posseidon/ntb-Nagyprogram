@@ -1,0 +1,116 @@
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \thechapter}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+
+\chapter{Szak térképek ábrázolási módszerei}
+  A következőkben definiálni fogjuk a topográfiai térkép fogalmát:
+	
+	\section{Szaktérképek}
+	A következőkben a  szaktérképekről szeretnék egy keveset ismertetni.
+		
+	A térképi elemek jelölik azokat a tárgyakat és jelenségeket, amelyek a térképre kerülnek, az ábrázolás maga,
+	ábrázolási elemek segítségével történik. Az ábrázolási elemek együttese adja a térképtartalmat. A szaktérkép
+	önmagában egy zárt, a valóságot a mennyiségi, minőségi, előfordulás, intenzitás, időpont vagy időtartam szerint
+	ábrázolhatjuk.
+		
+	A szaktérképek elvi kivitelezésüket tekintve négy alapvető csoportba sorolhatóak:
+	\begin{enumerate}
+		\item Analitikus szaktérképek
+		\item Komplex szaktérképek
+		\item Szintetikus szaktérképek
+		\item Szinoptikus szaktérképek
+	\end{enumerate}
+		
+	\subsection{Analitikus szaktérképek}
+	Jelenségeket, tényeket, folyamatokat stb. egy fölérendelt formai vagy funkcionális szerkezet részeként bontjuk fel
+	elemekre.
+	
+	\subsection{Komplex szaktérképek}
+	Egymás mellett többfajta jelenséget, tényt, folyamatot stb. ábrázolunk, azaz több analitikus térképet szeretnénk
+	egy térképen szemléltetni.
+	
+	\subsection{Szintetikus szaktérképek}
+	Ezeken a térképeken a formai vagy funkcionális szerkezeten belül a valóságot szintetikus összetevő, egységesítő
+	jelleggel ábrázoljuk. Analitikus $+$ Komplex  $=$ Szintetikus. Pl.: tájtípustérkép.
+	
+	\subsection{Szinoptikus szaktérképek}
+	Többfajta jelenséget áttekintő, összefoglaló módon ábrázol, s így együttes hatásukat is szemlélteti. 
+	Pl.: tájtípusok, klímatípusok egymásra hatása, régiók.
+		
+	\section{Térképtípusok}
+	A térképek tervezésénél és megjelenítésénél sok szempontot kell figyelembe venni, mint az átláthatóság, egyértelműség
+	és közlékenység. Egy nagyon fontos tényező, amely még mindig fejfájást okoz egy szaktérkép szerkesztésénél, az 
+	\emph{idő}, azaz a negyedik dimenzió. Az ábrázolás megoldásával kapcsolatos próbálkozások többirányúak voltak, és 
+	néhány új térképtípust eredményeztek:
+	\begin{enumerate}
+		\item Statikus térképek
+		\item Dinamikus térképek
+		\item Genetikus térképek
+	\end{enumerate}
+	
+	\subsection{Statikus térképek}
+	Egy bizonyos folyamatot, jelenséget, egy megadott időpontra jellemző állapotában ábrázolják.
+	
+	\subsection{Dinamikus térképek}
+	Egy bizonyos folyamatot, jelenséget, egy megadott időpontra jellemző állapotában ábrázolják, de
+	jelekkel, nyilakkal, számokkal a dinamikáját próbálják érzékeltetni.
+	
+	\subsection{Genetikus térképek}
+	A fejlődés térképek vagy változástérképek bonyolult jelenségeket, folyamatokat stb. igyekeznek keletkezésükben
+	fejlődésükben négydimenziós formájában ábrázolni.
+	
+	\section{Áttekintés}
+	A négy szaktérképcsoportok (analitikus, komplex, szintetikus, szinoptikus), továbbá statikus, dinamikus és genetikus
+	jelleg, és a mennyiségi, minőségi ábrázolás variációiból, és az ábárázolandó megjelenítési lehetőségeiből adódik, hogy
+	a szaktérképek szerkesztési skálája elméletileg végtelen, azaz a legkülönbözőbb témákból végtelen sok térképet lehet szerkeszteni.
+	
+	A generalizálási szabályok betartásával és a tartalom mennyiségi illetve minőségi arányok figyelembe vételével lehet
+	meghatározni az ábrázolás lehetőségét és jellegét. A térképi ábárzolás elemei:
+	\begin{itemize}
+		\item pont
+		\item vonal
+		\item terület
+		\item térhatású jelek
+		\item színvariációk
+		\item szöveges leírások
+	\end{itemize}
+	Gondos és átgondolt ábrázolási elemek együttese (jó tartalmi és technikai generalizálás) biztosítja az objektív valóságot,
+	jól olvashatóságot, és nem utolsó sorban esztétikailag kellemes megjelenésű térképet.
+	
+	A jelkulcs megszerkesztésekor, a jeleket úgy kell megválasztni, hogy a felhasználó különösebb gondolkodás nélkül
+	ráismerjen a témára, amelyet a jel szimbolizál. Ha ez valamilyen oknál fogva nem oldható meg, akkor vissza kell térni az alapvető
+	könnyen érthető jelekhez, mint a kör, háromszög.
+	
+	Fontos, hogy a jelek az első pillantásra megkülönböztethetőek legyenek, azonkívül egységesnek kell lenniük, azaz
+	azonos tulajdonságokat (minőségi) lehetőleg azonos nagyságú és formájú jelekkel ábárzoljuk.

@@ -1,0 +1,42 @@
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \thechapter}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+
+\chapter{Bevezetés}
+
+  A Térképet mint megjelenítési eszközt szeretném felhasználni mivel rendkívül nagy a kifejező ereje. Ennek segítségére szolgál az 
+informatika. E két terület együttes használatával, egy térképes alapú információs rendszert szeretnék bemutatni.
+
+  Térképészet vagy kartográfia (a görög khartisz = hártya, kártya és \\ graphein = írás, rajzolás)  a térképek és más kartográfiai 
+ábrázolási formák (például földgömb, panorámakép, fototérkép stb.) készítésének és használatának tudománya, technikája és művészete.

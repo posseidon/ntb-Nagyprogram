@@ -1,0 +1,44 @@
+\select@language {magyar}
+\contentsline {chapter}{\numberline {1.}Bevezet\IeC {\'e}s}{5}{chapter*.1}
+\contentsline {chapter}{\numberline {2.}Motiv\IeC {\'a}ci\IeC {\'o}}{7}{chapter*.1}
+\contentsline {section}{\numberline {2.1.}Wikipedia}{8}{section*.2}
+\contentsline {section}{\numberline {2.2.}Dokumentumok strukt\IeC {\'u}r\IeC {\'a}ja}{8}{section*.2}
+\contentsline {subsection}{\numberline {2.2.1.}Taxonomy}{8}{section*.3}
+\contentsline {subsection}{\numberline {2.2.2.}Folksonomy}{8}{section*.3}
+\contentsline {section}{\numberline {2.3.}T\IeC {\'e}rk\IeC {\'e}p \IeC {\'e}s adat k\IeC {\"o}zti kapcsolat}{9}{section*.3}
+\contentsline {subsection}{\numberline {2.3.1.}Megval\IeC {\'o}s\IeC {\'\i }t\IeC {\'a}s}{9}{section*.4}
+\contentsline {chapter}{\numberline {3.}T\IeC {\'e}rk\IeC {\'e}pszerkeszt\IeC {\'e}s, t\IeC {\'e}rk\IeC {\'e}ptervez\IeC {\'e}s}{11}{section*.4}
+\contentsline {section}{\numberline {3.1.}Generaliz\IeC {\'a}l\IeC {\'a}s}{11}{section*.5}
+\contentsline {subsection}{\numberline {3.1.1.}Alapfogalmak}{11}{section*.5}
+\contentsline {subsection}{\numberline {3.1.2.}Szempontok}{12}{section*.5}
+\contentsline {subsection}{\numberline {3.1.3.}Id\IeC {\'e}zetek}{12}{section*.5}
+\contentsline {subsection}{\numberline {3.1.4.}Kifejez\IeC {\H o}k\IeC {\'e}pess\IeC {\'e}g}{13}{section*.5}
+\contentsline {subsection}{\numberline {3.1.5.}H\IeC {\'e}t alapszab\IeC {\'a}ly}{13}{section*.5}
+\contentsline {section}{\numberline {3.2.}T\IeC {\"o}pfer-f\IeC {\'e}le gy\IeC {\"o}kszab\IeC {\'a}ly}{13}{section*.5}
+\contentsline {section}{\numberline {3.3.}Jelkulcs \IeC {\'e}s jelmagyar\IeC {\'a}zat}{14}{section*.5}
+\contentsline {subsection}{\numberline {3.3.1.}T\IeC {\'a}rgyi t\IeC {\"o}rv\IeC {\'e}nyszer\IeC {\H u}s\IeC {\'e}gek}{14}{section*.6}
+\contentsline {subsection}{\numberline {3.3.2.}Rajzi t\IeC {\"o}rv\IeC {\'e}nyszer\IeC {\H u}s\IeC {\'e}g}{14}{section*.6}
+\contentsline {chapter}{\numberline {4.}Szak t\IeC {\'e}rk\IeC {\'e}pek \IeC {\'a}br\IeC {\'a}zol\IeC {\'a}si m\IeC {\'o}dszerei}{15}{section*.6}
+\contentsline {section}{\numberline {4.1.}Szakt\IeC {\'e}rk\IeC {\'e}pek}{15}{section*.7}
+\contentsline {subsection}{\numberline {4.1.1.}Analitikus szakt\IeC {\'e}rk\IeC {\'e}pek}{15}{section*.7}
+\contentsline {subsection}{\numberline {4.1.2.}Komplex szakt\IeC {\'e}rk\IeC {\'e}pek}{15}{section*.7}
+\contentsline {subsection}{\numberline {4.1.3.}Szintetikus szakt\IeC {\'e}rk\IeC {\'e}pek}{16}{section*.7}
+\contentsline {subsection}{\numberline {4.1.4.}Szinoptikus szakt\IeC {\'e}rk\IeC {\'e}pek}{16}{section*.7}
+\contentsline {section}{\numberline {4.2.}T\IeC {\'e}rk\IeC {\'e}pt\IeC {\'\i }pusok}{16}{section*.7}
+\contentsline {subsection}{\numberline {4.2.1.}Statikus t\IeC {\'e}rk\IeC {\'e}pek}{16}{section*.8}
+\contentsline {subsection}{\numberline {4.2.2.}Dinamikus t\IeC {\'e}rk\IeC {\'e}pek}{16}{section*.8}
+\contentsline {subsection}{\numberline {4.2.3.}Genetikus t\IeC {\'e}rk\IeC {\'e}pek}{16}{section*.8}
+\contentsline {section}{\numberline {4.3.}\IeC {\'A}ttekint\IeC {\'e}s}{16}{section*.8}
+\contentsline {chapter}{\numberline {5.}Fejlesz\IeC {\H o}i Dokument\IeC {\'a}ci\IeC {\'o}}{19}{section*.8}
+\contentsline {section}{\numberline {5.1.}Technol\IeC {\'o}gia \IeC {\'A}ttekint\IeC {\'e}s}{19}{section*.9}
+\contentsline {section}{\numberline {5.2.}Keretrendszerek}{20}{section*.9}
+\contentsline {subsection}{\numberline {5.2.1.}Akelos}{20}{section*.10}
+\contentsline {subsection}{\numberline {5.2.2.}JEE}{20}{section*.10}
+\contentsline {subsection}{\numberline {5.2.3.}Flash CS4}{21}{section*.10}
+\contentsline {subsection}{\numberline {5.2.4.}Ruby On Rails}{21}{section*.10}
+\contentsline {section}{\numberline {5.3.}Adatb\IeC {\'a}zis motor}{22}{section*.10}
+\contentsline {subsection}{\numberline {5.3.1.}MySQL}{22}{section*.11}
+\contentsline {subsection}{\numberline {5.3.2.}Spatialite}{22}{section*.11}
+\contentsline {subsection}{\numberline {5.3.3.}PostgreSQL - Postgis}{22}{section*.11}
+\contentsline {section}{\numberline {5.4.}Google Maps}{23}{section*.11}
+\contentsline {section}{\numberline {5.5.}Verzi\IeC {\'o} k\IeC {\"o}vet\IeC {\'e}s}{23}{section*.11}

@@ -1,0 +1,89 @@
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \thechapter}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+
+\chapter{Motiváció}
+  Miért éppen geo, és miért pont a wiki? Az utóbbival kezdenék, külföldiként nem vagyok jártas, 
+  nem rendelkezem kellő ismeretekkel az európai kultúráról, építészetről, történelemről. Nap mint nap közlekedem Budapesten, 
+  megtettem egy útvonalat megannyiszor, de mindig is furdalt a kérdés, hogy vajon ez az épület, tér, csarnok vagy park
+	\begin{itemize}
+		\item mikor készülhetet?
+		\item milyen változásokon mehetett keresztül?
+		\item kik élhettek ezekben az épületekben?
+		\item milyen történelmi esemény fűződik ehhez a parkhoz?
+		\item az idő múlásával, milyen események történtek ezen a területen?
+		\item miért éppen ez a neve?
+		\item van-e még valamilyen érdekesség a közelben?
+		\item \ldots
+	\end{itemize}
+	A geo, mint \emph{geography} a kérdésekből már egyértelműen látszik, hogy elengedhetetlen része a rendszernek. Másrészről, egyszerűen azért mert szeretem a térképeket.
+	
+	Hogyan lehetne a tartalmi oldalát hatékonyan fejleszteni? A válasz a közösségben található. Sok ember egyből szkeptikusan megkérdezi, hogyan bízhatunk meg másokban, jó-e amit leír, megbízható-e a forrás. Úgy gondolom, hogy meg kell bízni egymásban. Ezért nem fektetek túl nagy hangsúlyt e kérdések kiküszöbölésére,
+	mint jogosultsági rendszer, szerkesztő vagy egyszerű olvasó. 
+
+	A rendszer sok dokumentumból adatokból áll, amelyekhez bárki hozzá adhat, javíthat és természetesen olvashat. Ezért minél egyszerűbbnek kell lennie.
+	\section{Wikipedia} A \emph{wiki} szó hawaii eredetű, nyers jelentése gyors. Erre alapozva Ward Cunningham, egy olyan dokumentummegosztó rendszer megépítését tűzte ki céljául, a \emph{wikipedia}-t, ahol  kollégái könnyedén megtudták osztani egymás között a tervezési mintákat (design patterns). Geo-wikinek is ez adja az egyik építő kövét.
+
+\section{Dokumentumok struktúrája}
+	Egy wiki oldal megírásához, szerkesztéséhez, megkell ismernünk a wiki tag-eket. Manapság már rengeteg WYSIWYG (what you see is what you get) szerkesztők vannak, amelyek rásegítenek a könnyebb és gyorsabb szerkesztéshez. Ez néha rugalmatlan, mert előre tudnom kell, hogy milyen kulcsszavakat, milyen tag-ek közé tegyem.
+	A \emph{tartalom} életútja a követező lépésekből állhat:
+	\begin{enumerate}
+		\item Tartalom megszerzése
+		\item Tartalom szerkezetének kialakítása
+		\item Tartalom tárolása
+		\item Tartalom megosztása
+	\end{enumerate}
+
+	\subsection{Taxonomy} Nézzünk erre egy példát.
+
+	A rendszerek többsége hierarchikusan van felépítve. Ha olvasunk egy újságot, akkor azt látjuk, hogy különböző részekre van bontva, mint Gazdasági, Sport, stb. A Gazdasági blokkból pedig további bontásokat látunk, mint Belföldi, Külföldi. A bontás addig szokták megtenni amíg szükséges, és még átlátható. A szülő-gyerek kapcsolat nagyon erős, és erre a kapcsolatra kell, hogy építkezzünk, ha bármit is szeretnénk keresni, összefüggéseket keresni.
+
+	\subsection{Folksonomy} A \emph{folksonomy}, taxonomy-val ellentétben, egy helyre ``hányva`` az összes adatot. És majd ezekből az adatokból csemegézünk, ha szeretnénk valamit keresni benne. Elsőre nem tűnik valami hatékonynak, ez pedig azért van mert hozzászoktunk a relációs gondolkodáshoz, alapból egy relációs adatbázisrendszerben szeretnénk eltárólni a dokumentumainkat.
+
+	Képzeljük azt, hogy egy könyvtárban vagyunk. Kiveszünk egy könyvet, elolvassuk, és visszatesszük a legközelebbi helyre, persze nem oda ahol volt. (vajon jó helyen volt?) Egy könyvtár esetében ez elég nagy probléma, de egy wiki-nek már nem.
+
+\section{Térkép és adat közti kapcsolat}
+	A célom olyan rendszer kialakítása, ahol bárki bármilyen témában adhat rövid leírás. Legyen ez önéletrajz, történelmi esemény, építészet. Természetesen helyhez, vagy környékhez kötődnek. Szeretném bevezetni az idő síkot is, mivel az idő alapján láthatjuk hogyan változott az adott helyszínt.
+
+	A másik fő célom, hogy térképészetileg helyes legyen. Ezt jelenleg nem támogatja a Google maps, így ezeket ki dolgozni és implementálni kell.
+
+	\subsection{Megvalósítás}
+	Egy-két technológiát említenék, amivel meg szeretném valósítani a rendszert.
+	A következő szempontok alapján osztályozom őket:
+	\begin{description}
+		\item [Dokumentumok] Dokumentum alapú adatbázisban tárolandó: RDBMS
+		\item [Térkép] Interaktív térképhez kapcsolódó információ tárolása, Spatial query-k használata: RDBMS és Google Map.
+		\item [Logika] Logikai-Funkcionalitás-Kiszolgáló egység: Ruby.
+		\item [Megjelenítés] Webes alapú rendszer: Ruby on Rails.
+	\end{description}

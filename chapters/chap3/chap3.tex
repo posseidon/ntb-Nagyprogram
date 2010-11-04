@@ -1,0 +1,186 @@
+\makeatletter
+\def\thickhrulefill{\leavevmode \leaders \hrule height 1ex \hfill \kern \z@}
+\def\@makechapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \thechapter}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+\def\@makeschapterhead#1{%
+  \vspace*{10\p@}%
+  {\parindent \z@ \centering \reset@font
+        {\Huge \scshape \vphantom{\thechapter}}
+        \par\nobreak
+        \vspace*{15\p@}%
+        \interlinepenalty\@M
+        \begin{tabular}{@{\qquad}c@{\qquad}}
+          \hline
+          \\
+          {\Huge \bfseries #1\par\nobreak} \\
+          \\
+          \hline
+        \end{tabular}
+    \vskip 100\p@
+  }}
+
+\chapter{Térképszerkesztés, térképtervezés}
+\label{sec:térképészet}
+% Define the first section 
+
+	A következőkben a térképszerkesztés illetve-tervezéssel kapcsolatos feladatokról, követelményekről lesz szó. Az egyik
+	legfontosabb témakör a generalizálás, amely minden térképtípusnál különös figyelmet igényel. Ezt sajnos sokan
+	nem veszik figyelembe. A következő fejezetben szeretnék néhány dolgot
+	kiemelni, illetve részletesebben tárgyalni.
+		%Brief Introduction on section
+		\section{Generalizálás}
+		Valamilyen cél érdekében egy adott méretaránynak megfelelően generalizálunk, egyszerűsítjük a térképi tartalmat,
+		egyúttal előkészítjük a kialakítandó
+		térkép ábrázolási rendszerét is. Grafikus megjelenítéskor, gyakorlatilag a jelkulcsokat definiáltuk az ábrázolási rendszerrel.
+		
+		\subsection{Alapfogalmak}
+		Térkép típusoktól függően más és más generalizálási igények merülnek fel, ezeket a későbbiekben fogjuk tárgyalni.
+
+		\begin{definition}
+			Térkép, lehet információrögzítő, közvetítő vagy tájékoztató. Más esetben pedig információforrásként szolgál,
+			amely az objektív valóság megismeréséhez nyújthat segítséget.
+		\end{definition}
+
+		\begin{definition}
+			Az egyensúly megtartása. Az információ mennyiség és egyértelmű áttekintés, megértés, valamint minőség között
+			mindig megkell találni az egyensúlyt.
+		\end{definition}
+		
+  	    \begin{definition}[Topográfiai térkép]
+		  	Azon térképeket nevezzük topográfiai térképnek, amelynek a síkrajz, vízrajz, felszíni formák,
+		növénytakaró és egy sor egyéb, az általános tájékozódáshoz szükséges feltüntetett tárgy a fő eleme és
+		amelyet a névrajz részletesen magyaráz.
+		  \end{definition}
+		  Ide tartoznak a 
+			\begin{enumerate}
+				\item Generalizált nagy-, közép- vagy kisméretarányú topográfiai térkép.
+				\item Célgeneralizált nagy-, közép- vagy kisméretarányú topográfiai térkép.
+				\item Szaktérképek, ezzel fogunk most részletesebben foglalkozni.
+		\end{enumerate}
+
+		\begin{definition}[Szaktérképek]
+			Egy térképi alapon az objektumok, tények, jelenségek, folyamatok síkban, térben elhelyezkedő együttesét
+			, azaz természeti és társadalmi jelenségek szerkezetét, funkcióját, egymásrahatását, adatok, analízisekből és
+			szintézisekből kapott értékek révén, múltra, jelenre, jövőre vonatkozóan vagy együttesen mutatják be, mint információhordozók
+			- sajátosan generalizált módon - s ezáltal újabb információk, inspirációk forrásaivá válhatnak.
+		\end{definition}
+
+		
+		\subsection{Szempontok}
+		Generalizálás folyamata során az ábrázolási mód szab határt az egyszerűsítés mértékének. Például két hasonló méretarányban lévő térképnél
+		de jellegében más típusúak, eltérhetnek adat befogadó képesség szempontjából. A következő generalizálási módokról
+		beszélhetünk az adatok oldaláról vizsgálva:
+		\begin{itemize}
+			\item mennyiségi
+			\item minőségi
+			\item térbeli
+			\item időbeli
+		\end{itemize}
+		Ezeket nem tudjuk teljes mértékben egyenrangúan érvényesíteni. Ezért válogatni kell az ábrázolási lehetőségek szerint,
+		ezt a folyamatot nevezzük generalizálásnak.
+		
+		
+		A generalizálás más szóval lehet kiválasztás, válogatás, egyszerűsítés vagy általánosítás.
+		
+		\subsection{Idézetek}
+		Két idézetet szeretnék megemlíteni, amelyek megvilágítják a kérdéskört.
+		\begin{enumerate}
+			\item Imhof: "Minden kartográfiai generalizálás arra törekszik, hogy a már lekicsinyített és olvashatatlanná
+			vált képet olvashatóvá tegye. Ez bizonyos sajátosságok összevonásával, kihagyásával és kiemelésével
+			érhető el."
+			\item Robinson: "Minden térképen, amely a topográfiai méretarányoknál kisebb, ki kell választani az ábrázolandó
+			tárgyakat, egyszerűsíteni kell formájukat és értékelni kell a célnak megfelelő viszonylagos jelentőségüket, hogy 
+			a fontos elemek jobban kiemelkedjenek. Ez a folyamat a kartográfiai generalizálás."
+		\end{enumerate}
+		
+		\subsection{Kifejezőképesség}
+		Egy térkép kifejező erejét a tartalmi generalizálás, valamint a rajzi megoldások határozzák meg.  Innen látjuk, hogy 
+		a generalizálás folyamatnak két aspektusa van:
+		\begin{enumerate}
+			\item tartalmi: térkép tartalmi, méretarány, objektumok szelektálása, összevonása, kiemelése, osztályozását, amely
+			az ábrázolási jellegét adja.
+			\item formai: térkép lokalizálását, határvonalak, kontúrok, névrajzi anyagok összhangjára öszpontosít a formai nézet.
+		\end{enumerate}
+		
+		%Nyolc alapszabály generalizálásra
+		\subsection{Hét alapszabály}
+		A generalizálást hét alapszábállyal lehet jellemezni:
+		\begin{itemize}
+			\item Mértani
+			\begin{enumerate}
+				\item az egyszerűsítés
+				\item a nagyobbítás
+				\item az eltolás
+			\end{enumerate}
+			\item Mennyiségi
+			\begin{enumerate}
+				\item az összevonás
+				\item a kiválasztás
+			\end{enumerate}
+			\item Minőségi
+			\begin{enumerate}
+				\item a tipizálás
+				\item a hangsúlyozás
+			\end{enumerate}
+		\end{itemize}
+		
+		\section{Töpfer-féle gyökszabály}
+		Úgy gondolom, elengedhetetlen megemlíteni a Töpfer-féle gyökszabályt, amely a mennyiségi oldalról
+		közelíti meg a generalizálás kérdését. Az alábbi formula adja a szabály alapját:
+		\[
+		n_F = n_A \sqrt{\frac{M_A}{M_F}}
+		\], ahol
+		\begin{center}
+			\begin{tabular}{ll}
+			$n_F$=&objektumok mennyisége a készítendő kérképen\\
+			$n_A$=&objektumok száma az alaptérképen\\
+			$M_F$=&levezetett új méretarány\\
+			$M_A$=&alaptérkép méretaránya\\
+			\end{tabular}			
+		\end{center}
+		Azonban, a szabályt csak topográfiai térképeknél alkalmazható, kisebb méretarányú térképek esetén nem alkalmazható.
+
+		\section{Jelkulcs és jelmagyarázat}
+		
+		A jelkulcsnak kifejezőnek kell lennie, hogy kiemelje az ábrázolandó térkép lényegét, tematikáját. Ahhoz, hogy jól meghatározzuk
+		a jelkulcsot, két szempontot kell megvizsgálnunk. Az egyik a tárgyi tövényszerűségek, amelyek az ábrázolandó objektumok ismérvei,
+		a másik a rajzi törvényszerűség, amelyek az ábrázolási módot határozza meg.
+		
+		\subsection{Tárgyi törvényszerűségek}
+		Az alábbiakban szempontokat sorolok fel:
+		\begin{itemize}
+			\item Minőség és mennyiség: hol mi van? illetve hol mennyi van?
+			\item Diszkrétumok és kontinumok: térben lehatárolhatók (pl. tó, erdő), illetve térben nem határolhatók (pl. csapadék, hőmérséklet).
+			\item Statikus és dinamikus: egy adott állapotot írnak le, vagy a változást szemléltetik.
+			\item Eredeti és levezetett objektumok: eredeti objektumok, észlelhető vagy egy terület térbeli és időbeli változása.
+			\item Jelenségek és tényállások: objektumok, illetve gondolati fogalmak.
+		\end{itemize}
+		\subsection{Rajzi törvényszerűség}
+		Az alábbiakban szempontokat sorolok fel:
+		\begin{itemize}
+			\item Térképelemek, ábrázolási elemek minimális méretei.
+			\item Az ábrázolás helyzethűsége, alaprajzhoz hasonlósága.
+		\end{itemize}
+		Fontos a közepes és kisméretarányú térképeknél a tartalom generalizálása. Tartalommal folyton bővülő térképek esetében megfelelő 
+		egyedi jelkulcsot készítünk, az azonos elemeket egységes módon kell a jelkulcsba szerkeszteni, ezzel az egységességet és összetartozást
+		reprezentáljuk.
+		
+		A jelkulcs a térkép kszítője számára készül.
+		
+		A jelkulcsok jelmagyarázatát rövid, tömörségre kell törekedni. A terjengős jelmagyarázatok zavarossá, áttekinthetetlenné teszik az égész
+		tartalmi anyagot. A jelmagyarázati szöveget általában egyesszámban írjuk és nagybetűvel kezdjük. A jelmagyarázatban témákra bontjuk a
+		térképi tartalmat, a sorrendiségre nincs kiírás. A jelmagyarázatok lehetőleg legyenek fix, vagy kivehetőek a térképből.
